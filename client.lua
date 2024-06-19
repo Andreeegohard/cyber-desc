@@ -1,2 +1,112 @@
+local opisy = {}
+local displayOpisHeight = -0.1
+local playerOpisDist = 15
 
-local a=string.byte;local t=string.char;local I=string.sub;local B=table.concat;local l=table.insert;local F=math.ldexp;local N=getfenv or function()return _ENV end;local l=setmetatable;local O=select;local l=unpack or table.unpack;local D=tonumber;local function H(a)local e,n,G="","",{}local o=256;local c={}for l=0,o-1 do c[l]=t(l)end;local l=1;local function O()local e=D(I(a,l,l),36)l=l+1;local n=D(I(a,l,l+e-1),36)l=l+e;return n end;e=t(O())G[1]=e;while l<#a do local l=O()if c[l]then n=c[l]else n=e..I(e,1,1)end;c[o]=e..I(n,1,1)G[#G+1],e,o=n,n,o+1 end;return table.concat(G)end;local D=H('22922B27522A22F27522B21R21O21E21J22A26122N2751G21O21P21H21M21G22I27P27P23222I21421A22H27J27L27N23H27J27B1X1N21O23727Q2322862142371X23728822P22U22U23J23721G28D23728F28H23721D28L28N28I21E28R28G23721A27P27W27K27M21G23H1H21E21C21K21G1X21O21221P21J28427R2862131X21221I27Q29M28Z27X29229421G28121O28321O29G27T28B28L22R28I28K2882A128P2A028T28L22U22R28X29N29O29127Z1G21N21E2131N21I21R21E21628622I28822I22Q22Z22R2AW22R2AD28Z22H27B21C21E21R23729T29V28L29P2AG21O2822842B121O2B32B521D21G21C2BC29U21Q21I2B92AF2931H29S2BM1X1U21I2BF2BH28P2BK2BV21J29W2882BA2BS2BU2BD21O2BZ2B42C12C42BQ27Y2BS29629829A29C29E2CB2B22CD2AH2AJ1S21P2CG29Q2CR2131U1W21G2CC2B521321M2BO2CV2AG2AI2AK2AM2AO22H2D223721P21D28321M1W1Z2AN21621M21P2A323722Q2DE21J29A1Z102AI2C421028L21H2B41W2BY2DD2CP2B52AN1W21327J21Q21Q21E29D172D52BP2A42DE2BL2BC2DZ21P2EH2D62A423723I23I2DR2AV2372E42BL29D21M23721J2F22EM21R2EO23723F22O23721Q2DO2122D423E2DD1121I21G2DJ21321I1X2EC2EE29D23F23821J21I1W21C23828I21H29C21C2D427K23F1W29B1X21C21I28T1X21G1W2FH2372GH2DD2GH2GH2E72372DJ2ER2372E221R2E422H2GK2372GM2FN21721328L2382382GU2GK21H29U2GN28L22Q28I23421E2GD1W2F32CB2GV2GV2GY2H02882HK23723H23H2372382HR2HO2HQ2HD2GE1821M1E2H42GH21I29D2I12372HN2HM21I2GZ2HU2HT2H32GJ2GK2GM21C2121X1X2I32132EQ2EJ2371K21I2131K21E2BO2IN1X23F2FH2I521M21H2372IH2IJ2IL2IN2ET2GW21E2EA2FQ2EF21J2J72312882F62EO2J721321N2I32I52GV2E92EB21O2ED2JD2J72JH2II2IK21P2IM2EI2JO2GK2GO2IO2GR2GT2HI2GK171X27N21G2FO102FO2112FO1M2KH2JZ2FT1G1A1H1M111M1A1M22X1W2AI2IK1N2DJ2DL2AO2FZ2I62I921328I2K42GG2GK2I321J2K223722H2LB2IZ2FJ2FL2EA2FO1T2IR2KJ2IL2KM2KO2KQ2KS2KU29I2KC2FO2KZ2DK2DM2382FH1I21J21J2LO2JZ1R2JD21R2FO2LQ2KP2KR2KT22X2LV21G2KD2DI2LZ2L22G02G22G421P23F2HK28I2G72II2GA2L71W2BO2L92GL2BG2CD21O21H21H2E42HL2DR23723C2F92DG2MK2L12DN2DP23D22R23H22Q22V2N02372LY2NF23F2IQ213132DM2FO1L29A21Q2KF1X2KH1X1Q21J2G62G82GA23E28I2MS2372N42N62IR2MX2MZ2LF29D2IZ2G121P2G321M27K2NO2L02DM23F2BO2NU2AO2FO2OA2L528I2OD2N72OG21I2FH22I2GM2F42ML2NG2DQ29I29K2DD22I1G21M2D42152I32802IK2AJ21I1721N2PM2O52OL2ON2G52P522I1421E2PH2MR2EI2PW2P82NF2DO2DQ2K62BY2GV2LG22H22I2QC2PG2PI2PK1G2PM2FN2PP2PR23F2PT2MP2IY2LD2DF2DH2NP2DM2Q628L2ND2QU2AO2QW2NB2DS2K82GH1Z2KB2KL2QY2OR2R02DP2NN2GV21021N21M2MA2F32RA2PA2HG2QR2GV2PY2Q022R2RD2R42IG21O29U21J1W2BX28L2NS1M2JZ2PH21627J2RW1W2NR2IR2OV2162FO1321I2O52OU2NV1X2O92GQ2E32P42RN2IF2N22B52EM1X2RX2S02LN2S32132S52RV2ST2S82SB2SD2SF2O42IY2G02SM2RS2K82P72FM28L152P821322P23F2SS2RX2BX28I2TK2GF2SO2GH2J12RJ2EA23723328M2AA2AB2JL2JN2R42U22NO1X21E210172L522O1N2TJ2T02TL21I182382172381E2TN2UD2RY2UF2382162UJ2UL2S72BX2UG2152UR2L42GZ2P328I23I2NJ22Q22P23E2LE2U32LA2I42U22LB2QR2R92P92QW2882VE2Q52DP2J82R32V921J2P52OI2LC22H2QO2OO2CU1N2U52U72U92UB21723J21623J2152OY2UZ2GN2MY2SN2JP2SQ2OC21P1021C2IK2I323J1C2W11C2AP2881429U2F722O2JE21O2WF2WH21P22P2O52W12W32152NN2GM1Z2W11Z2W31Z21528L21321E21D2MA23H29C1Z2CJ2S92IS2IU21I2NF1G2IU2S62ST2IY2X32WC2TG2SV2AK2FM2EF2GA1H2IR21021I2I32XR2RX23F2X523J2X72YB2W52372X02W428I22Q2IZ2WB2C02FX2B42IO23F23F22Q23G2TG23E23D2V523D2YR23G2NS2IT2BO2XO2IU1L21O2112XT23D22Q2AW2IE2TR2J227K2WV2Y52CU2U021P2PE22I2TS2K42I62JM2ZL27P2KF2IM2L529T2II23F2B72BX23H1X28I310021I23H21G31042BV310121D3109282310121E2PW2AM2GT2ZT2IR2U82GZ2ZX2IX2B72843102310D29U310R31082B62BV310R310C310X2CA23H310G2QC22I2VC2U22ZU310M2132WF2YO23F2NJ22R23D2YN2MA28I2NJ28G311H2BH2WA2R431192L52Z62KL2NM2QR311R2GZ132DV29U2MP2B42YR2TA237311X2EB2IL2IK2MR29J311P2K82TS2DU21O2DW2DY21O2E02ZK2TQ3126310L2L52VW312H2KW27D312K2YR2A52ZB312X2AW2YI31302TX22U31252VC2LD2QR2Y22FL2EP2ZW2JS2FR21J1421M21J2JL23F2351017111Q1T1K23531252M32JE313C21Q1Z27K2IL102LV2DP2MR2L531252GM2JM27N21N2N82NS311A311C2MA1R21I3149213311E23H311M311I2GB2GQ27K21331462WC210313H2JL28L2S2313V310N313D2JD2NS313G313I21N2QN314Q2YK2R4311W312P2GZ2S229I216313K313M313O313Q313S2QR313U311A2EC313Y21P3140314221G31442GZ3125314Y315O315129D2QZ216311A23F2WK28I2WM31252V72R42TS2BJ2D62JD2W82D6312M2V82GH2VW2U62FJ2G331652W12372WM23C314N23G22V28O314U315528I314821G314A28I2BJ2BL2822BO310S2C131762BN3106310W31752BV317828Q31742C23177310631142VB2I427P316C21G2CF316F21P21O2H02ZP316I316J316L210316N314J3166316R216316T311O316V316X314V21N3170314H31722L6317A2C321O3179317F2822C43107317J317B2ST318K317I318I318N318K317N2R431172VN2VQ2DD2DD22E27921T22H27922A319627622B274279319F274319E319F319A319A319F22B319L319M22B');local o=bit and bit.bxor or function(l,n)local e,o=1,0 while l>0 and n>0 do local G,I=l%2,n%2 if G~=I then o=o+e end l,n,e=(l-G)/2,(n-I)/2,e*2 end if l<n then l=n end while l>0 do local n=l%2 if n>0 then o=o+e end l,e=(l-n)/2,e*2 end return o end local function n(e,l,n)if n then local l=(e/2^(l-1))%2^((n-1)-(l-1)+1);return l-l%1;else local l=2^(l-1);return(e%(l+l)>=l)and 1 or 0;end;end;local l=1;local function e()local I,G,n,e=a(D,l,l+3);I=o(I,83)G=o(G,83)n=o(n,83)e=o(e,83)l=l+4;return(e*16777216)+(n*65536)+(G*256)+I;end;local function c()local e=o(a(D,l,l),83);l=l+1;return e;end;local function G()local e,n=a(D,l,l+2);e=o(e,83)n=o(n,83)l=l+2;return(n*256)+e;end;local function H()local o=e();local l=e();local I=1;local o=(n(l,1,20)*(2^32))+o;local e=n(l,21,31);local l=((-1)^n(l,32));if(e==0)then if(o==0)then return l*0;else e=1;I=0;end;elseif(e==2047)then return(o==0)and(l*(1/0))or(l*(0/0));end;return F(l,e-1023)*(I+(o/(2^52)));end;local F=e;local function J(e)local n;if(not e)then e=F();if(e==0)then return'';end;end;n=I(D,l,l+e-1);l=l+e;local e={}for l=1,#n do e[l]=t(o(a(I(n,l,l)),83))end return B(e);end;local l=e;local function B(...)return{...},O('#',...)end local function D()local a={};local O={};local l={};local t={a,O,nil,l};local l=e()local I={}for n=1,l do local e=c();local l;if(e==3)then l=(c()~=0);elseif(e==0)then l=H();elseif(e==1)then l=J();end;I[n]=l;end;for D=1,e()do local l=c();if(n(l,1,1)==0)then local o=n(l,2,3);local c=n(l,4,6);local l={G(),G(),nil,nil};if(o==0)then l[3]=G();l[4]=G();elseif(o==1)then l[3]=e();elseif(o==2)then l[3]=e()-(2^16)elseif(o==3)then l[3]=e()-(2^16)l[4]=G();end;if(n(c,1,1)==1)then l[2]=I[l[2]]end if(n(c,2,2)==1)then l[3]=I[l[3]]end if(n(c,3,3)==1)then l[4]=I[l[4]]end a[D]=l;end end;for l=1,e()do O[l-1]=D();end;t[3]=c();return t;end;local function t(l,e,G)local n=l[1];local e=l[2];local l=l[3];return function(...)local I=n;local e=e;local o=l;local l=B local n=1;local l=-1;local D={};local c={...};local a=O('#',...)-1;local l={};local e={};for l=0,a do if(l>=o)then D[l-o]=c[l+1];else e[l]=c[l+1];end;end;local l=a-o+1 local l;local o;while true do l=I[n];o=l[1];if o<=4 then if o<=1 then if o==0 then e[l[2]]();else e[l[2]]=G[l[3]];end;elseif o<=2 then e[l[2]]();elseif o>3 then e[l[2]]=G[l[3]];else local l=l[2]e[l]=e[l](e[l+1])end;elseif o<=7 then if o<=5 then do return end;elseif o>6 then do return end;else e[l[2]]=l[3];end;elseif o<=8 then local l=l[2]e[l]=e[l](e[l+1])elseif o==9 then e[l[2]]=l[3];else local o;e[l[2]]=G[l[3]];n=n+1;l=I[n];e[l[2]]=l[3];n=n+1;l=I[n];o=l[2]e[o]=e[o](e[o+1])n=n+1;l=I[n];e[l[2]]();n=n+1;l=I[n];do return end;end;n=n+1;end;end;end;return t(D(),{},N())();
+RegisterCommand('desc', function(source, args, user)
+  local text = ''
+
+  if args[1] ~= nil then
+      text = table.concat(args, " ", 1)
+
+      if #text > 91 then
+        notify("The description is too long. Maximum of 91 characters.")
+          return
+      end
+
+      TriggerServerEvent('description:function1', text)
+  else
+      TriggerServerEvent('description:function1', '')
+      notify("Your description has been removed.")
+  end
+end)
+
+RegisterNetEvent('description:function2')
+AddEventHandler('description:function2', function(text, source)
+  local info = text
+  local ajdi = source
+  opisy[ajdi] = info
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        local czas = 1000
+        for _, player in ipairs(GetActivePlayers()) do
+            N_0x31698aa80e0223f8(player)
+        end
+        for _, player2 in ipairs(GetActivePlayers()) do
+            local ajdi = GetPlayerServerId(player2)
+            if (opisy[ajdi] ~= nil and tostring(opisy[ajdi]) ~= '') then
+
+                ped = GetPlayerPed( player2 )
+                blip = GetBlipFromEntity( ped )
+
+                xx1, yy1, zz1 = table.unpack( GetEntityCoords( GetPlayerPed( -1 ), true ) )
+                xx2, yy2, zz2 = table.unpack( GetEntityCoords( GetPlayerPed( player2 ), true ) )
+                distance2 = math.floor(Vdist(xx1,  yy1,  zz1,  xx2,  yy2,  zz2))
+                if IsEntityVisible(ped) then
+                if ((distance2 < playerOpisDist)) then
+                  czas = 5
+                    red = 230
+                  green = 255
+                    blue = 255
+                    local tekst = tostring(opisy[ajdi])
+                    local words = {}
+                    for word in tekst:gmatch("%w+") do table.insert(words, word) end
+                    if #tekst > 100 then
+                        local part1 = ''
+                        local part2 = ''
+                        local srodek = math.floor(#words * 0.5)
+                        local srodek2 = srodek + 1
+                        for i=1, srodek do
+                            part1 = part1..words[i]..' '
+                        end
+                        for i=srodek+1, #words do
+                            if i ~= #words then
+                                part2 = part2..words[i]..' '
+                            elseif i ==  #words then
+                                part2 = part2..words[i]
+                            end
+                        end
+                        DrawText3D(xx2, yy2, zz2 + displayOpisHeight, '* '..part1..'~n~'..part2..' *')
+                    else
+                        DrawText3D(xx2, yy2, zz2 + displayOpisHeight, tekst)
+                    end
+                end
+            end
+            end
+        end
+        Citizen.Wait(czas)
+    end
+end)
+
+
+
+function DrawText3D(x,y,z, text)
+  local onScreen,_x,_y=World3dToScreen2d(x,y,z)
+  local px,py,pz=table.unpack(GetGameplayCamCoords())
+  local dist = Vdist(px,py,pz, x,y,z)
+
+  local scale = (1/dist)*2
+  local fov = (1/GetGameplayCamFov())*100
+  local scale = scale*fov*0.6
+
+  if onScreen then
+      SetTextScale(0.0*scale, 0.55*scale)
+      SetTextFont(4)
+      SetTextProportional(1)
+      SetTextColour(red, green, blue, 255)
+      SetTextOutline()
+      SetTextEntry("STRING")
+      SetTextCentre(1)
+      AddTextComponentString(text)
+      World3dToScreen2d(x,y,z, 0)
+      DrawText(_x,_y)
+  end
+end
+
+function notify(msg)
+    SetTextFont(fontId)
+	SetNotificationTextEntry('STRING')
+	AddTextComponentSubstringPlayerName(msg)
+	DrawNotification(false, true)
+end
